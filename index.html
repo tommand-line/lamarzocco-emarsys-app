@@ -1,96 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script defer src="/_vercel/insights/script.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css" />
+  <title>LaMarzocco Web Extend Page</title>
+  <meta name="description" content="High-performance HTML based website template." />
+  <style>
+    body {
+      text-align: center;
+      margin: 0 auto;
+      padding: 0;
+      background-color: white;
+      color: black;
+    }
+
+    h1 {
+      color: black;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      gap: 20px;
+      padding: 20px;
+      max-width: 80%;
+      scroll-snap-type: x mandatory;
+      margin: 0 auto;
+      align-self: auto center;
+    }
+
+    .carousel img {
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      scroll-snap-align: start;
+    }
+
+    .carousel img:hover {
+      transform: scale(1.1);
+    }
+
+    .carousel-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .carousel-item button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+
+<script type="text/javascript">
+  var ScarabQueue = ScarabQueue || [];
+  (function(id) {
+    if (document.getElementById(id)) return;
+    var js = document.createElement('script'); js.id = id;
+    js.src = '//cdn.scarabresearch.com/js/1BE670803C2718D0/scarab-v2.js';
+    var fs = document.getElementsByTagName('script')[0];
+    fs.parentNode.insertBefore(js, fs);
+  })('scarab-js-api');
+  </script>
+
+<body>
+  <img src="./La Marzocco - Employer Branding Great Place to Work.png" alt="logo">
+  <h1>Partecipa al nostro percorso per migliorare le tue abitudini alimentari!</h1>
+  <button onclick="submitEvent()">Iscriviti Ora</button>
+
+  <div class="carousel">
+    <div class="carousel-item">
+      <img src="./linea-mini-thumb-1.png" alt="linea-mini" onclick="viewEvent1()">
+      <h3>Linea Mini</h3>
+      <button onclick="cartEvent1()">Aggiungi Al Carrello</button>
+    </div>
+    <div class="carousel-item">
+      <img src="./vulcano-thumb.png" alt="vulcano" onclick="viewEvent2()">
+      <h3>Vulcano</h3>
+      <button onclick="cartEvent2()">Aggiungi Al Carrello</button>
+    </div>
+    <div class="carousel-item">
+      <img src="./swift-thumb.png" alt="swift" onclick="viewEvent3()">
+      <h3>Swift</h3>
+      <button onclick="cartEvent3()">Aggiungi Al Carrello</button>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript">
+  function submitEvent() {
+    ScarabQueue.push(['setEmail', 't.mandoloni@gmail.com']);
+    ScarabQueue.push(['tag', 'submit_event', {
+      source: 'lamarzocco test page',
+      topic: 'iscrizione newsletter',
+      id_nl: 10
+    }]);
+    ScarabQueue.push(['go']);
+    alert("Grazie Per L'Iscrizione")
+  }
+
+  function viewEvent1() {
+    ScarabQueue.push(['setEmail', 't.mandoloni@gmail.com']);
+    ScarabQueue.push(['view', 'LINEA-MINI']);
+    //ScarabQueue.push(['category', 'Espresso machines>Home machines']);
+    ScarabQueue.push(['go']);
+    alert("Hai Visualizzato Linea Mini (product)")
+  }
+
+  function cartEvent1() {
+    ScarabQueue.push(['setEmail', 't.mandoloni@gmail.com']);
+    ScarabQueue.push(['cart', [
+      { item: 'LINEA-MINI', price: 5, quantity: 1 }
+    ]]);
+    ScarabQueue.push(['go']);
+    alert("Linea Mini Aggiunto Al Carrello (1 x 5 euro)")
+  }
+
+  function viewEvent2() {
+    ScarabQueue.push(['setEmail', 't.mandoloni@gmail.com']);
+    //ScarabQueue.push(['view', 'VULCANO']);
+    ScarabQueue.push(['category', 'Grinders>Commercial grinders']);
+    ScarabQueue.push(['go']);
+    alert("Hai Visualizzato Vulcano (category)")
+  }
+
+  function cartEvent2() {
+    ScarabQueue.push(['setEmail', 't.mandoloni@gmail.com']);
+    ScarabQueue.push(['cart', [
+      { item: 'VULCANO', price: 5, quantity: 1 }
+    ]]);
+    ScarabQueue.push(['go']);
+    alert("Vulcano Aggiunto Al Carrello (1 x 5 euro)")
+  }
+
+  function viewEvent3() {
+    ScarabQueue.push(['setEmail', 't.mandoloni@gmail.com']);
+    ScarabQueue.push(['view', 'SWIFT']);
+    //ScarabQueue.push(['category', 'Grinders>Commercial grinders']);
+    ScarabQueue.push(['go']);
+    alert("Hai Visualizzato Swift (product)")
+  }
+
+  function cartEvent3() {
+    ScarabQueue.push(['setEmail', 't.mandoloni@gmail.com']);
+    ScarabQueue.push(['cart', [
+      { item: 'SWIFT', price: 5, quantity: 1 }
+    ]]);
+    ScarabQueue.push(['go']);
+    alert("Swift Aggiunto Al Carrello (1 x 5 euro)")
+  }
+</script>
+
 </html>
