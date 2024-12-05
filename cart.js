@@ -47,13 +47,21 @@ function checkout() {
         items: cart
     }]);
 
+    emptyCart()
+    //window.location.href = 'index.html';
+}
+
+function emptyCart() {
     cart = []
     ScarabQueue.push(['cart', cart]);
     ScarabQueue.push(['go']);
 
     localStorage.removeItem('cart');
     renderCart()
-    //window.location.href = 'index.html';
+}
+
+function backHome() {
+    window.location.href = 'index.html';
 }
 
 renderCart()
