@@ -52,6 +52,7 @@ function checkout() {
     ScarabQueue.push(['go']);
 
     localStorage.removeItem('cart');
+    renderCart()
     //window.location.href = 'index.html';
 }
 
