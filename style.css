@@ -1,0 +1,84 @@
+body {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+header {
+    background-color: white;
+}
+
+h1 {
+    color: black;
+}
+
+h3 {
+    color: black;
+}
+
+h4 {
+    color: black;
+}
+
+span {
+    font-size: large;
+    font-weight: bolder;
+    color: black;
+}
+
+.cart-icon:hover {
+    cursor: pointer;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    max-width: 80%;
+    scroll-snap-type: x mandatory;
+    margin: 0 auto;
+    align-self: auto center;
+}
+
+.carousel img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    scroll-snap-align: start;
+}
+
+.carousel img:hover {
+    transform: scale(1.1);
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-item button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
