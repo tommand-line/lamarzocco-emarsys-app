@@ -36,6 +36,7 @@ function removeFromCart(item) {
     cart = cart.filter(product => product.item !== item);
     localStorage.setItem('cart', JSON.stringify(cart));
     ScarabQueue.push(['cart', cart]);
+    ScarabQueue.push(['go']);
     renderCart();
 }
 
@@ -49,7 +50,7 @@ function checkout() {
     cart = []
     ScarabQueue.push(['cart', cart]);
     ScarabQueue.push(['go']);
-    
+
     localStorage.removeItem('cart');
     window.location.href = 'index.html';
 }

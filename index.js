@@ -2,9 +2,6 @@ const cart = JSON.parse(localStorage.getItem('cart')) || [];
 updateCartCount();
 
 function addToCart(item, price, quantity = 1) {
-    /*ScarabQueue.push(['cart', [
-        { item: name, price: price, quantity: quantity }
-    ]]);*/
     alert(`Hai Aggiunto ${item} al Carrello`)
     const productIndex = cart.findIndex(product => product.item === item);
     if (productIndex > -1) {
@@ -13,26 +10,26 @@ function addToCart(item, price, quantity = 1) {
         cart.push({ item, price, quantity });
     }
     ScarabQueue.push(['cart', cart]);
+    ScarabQueue.push(['go']);
     updateCartCount();
 }
 
 function updateCartCount() {
     const cartCount = cart.reduce((acc, product) => acc + product.quantity, 0);
     document.getElementById('cart-count').textContent = cartCount;
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 function goToCart() { 
-    ScarabQueue.push(['go']);
-    localStorage.setItem('cart', JSON.stringify(cart));
     window.location.href = 'checkout.html';
 }
 
-function viewProduct(name) {
-    ScarabQueue.push(['view', name]);
-    alert(`Hai Visualizzato ${name} (product)`)
+function viewProduct(item) {
+    //ScarabQueue.push(['view', name]);
+    alert(`Hai Visualizzato ${item} (product)`)
 }
 
 function viewCategory(category) {
-    ScarabQueue.push(['category', category]);
+    //ScarabQueue.push(['category', category]);
     alert(`Hai Visualizzato ${category} (category)`)
 }
