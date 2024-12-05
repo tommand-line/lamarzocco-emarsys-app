@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="text/javascript">
+        var ScarabQueue = ScarabQueue || [];
+        (function (id) {
+            if (document.getElementById(id)) return;
+            var js = document.createElement('script'); js.id = id;
+            js.src = '//cdn.scarabresearch.com/js/1BE670803C2718D0/scarab-v2.js';
+            var fs = document.getElementsByTagName('script')[0];
+            fs.parentNode.insertBefore(js, fs);
+        })('scarab-js-api');
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Carrello</h1>
+    </header>
+    <div class="cart-items" id="cart-items">
+        <!-- I prodotti verranno caricati qui -->
+    </div>
+    <div class="cart-summary" style="padding: 20px;">
+        <h3 id="total">Totale: €0.00</h3>
+        <button onclick="checkout()">Procedi al Pagamento</button>
+    </div>
+
+    <script type="text/javascript">
+        // sottoscrivo subito l'utente alla coda degli eventi
+        ScarabQueue.push(['setEmail', 'r.rosiello@reply.it']);
+      </script>
+
+    <script src="cart.js"></script>
+
+    <script type="text/javascript">
+        window.addEventListener('popstate', function (event) {
+            ScarabQueue.push(['go']);
+        });
+    </script>
+
+</body>
+
+</html>
