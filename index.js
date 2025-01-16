@@ -18,7 +18,8 @@ function sendCartEventToEmarsys() {
     const url = 'https://api.emarsys.net/api/v2/event/938/trigger';
     const headers = {
         'X-WSSE': token,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'https://api.emarsys.net'
     };
 
     const cart_data = cart.map(it => ({
