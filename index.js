@@ -1,15 +1,14 @@
-const crypto_js = require('crypto-js');
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 updateCartCount();
 
 const token = retrieveToken()
 
 function retrieveToken() {
-    var username = "lamarzocco001";
-    var secret = "EZY4HrCKVhB33RYCntJ3";
-    var ts = (new Date()).toISOString();
-    var nonce = crypto_js.lib.WordArray.random(16).toString(crypto_js.enc.Hex);
-    var digest = crypto_js.enc.Base64.stringify(crypto_js.enc.Utf8.parse(crypto_js.SHA1(nonce + ts + secret).toString(crypto_js.enc.Hex)));
+    const username = "lamarzocco001";
+    const password = "EZY4HrCKVhB33RYCntJ3";
+    const created = new Date().toISOString();
+    const nonce = CryptoJS.lib.WordArray.random(16).toString();
+    const digest = CryptoJS.SHA256(nonce + created + password).toString(CryptoJS.enc.Base64);
     return 'UsernameToken Username="' + username + '", PasswordDigest="' + digest + '", Created="' + ts + '", nonce="' + nonce + '"';
 }
 
