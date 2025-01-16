@@ -1,7 +1,3 @@
-'use strict';
-
-const crypto = require('crypto');
-
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 updateCartCount();
 
@@ -12,61 +8,15 @@ console.log(cart);
 function retrieveToken() {
     const user = 'lamarzocco001';
     const secret = 'EZY4HrCKVhB33RYCntJ3';
-    let nonce = crypto.randomBytes(16).toString('hex');
-    let timestamp = new Date().toISOString();
 
-    let digest = base64Sha1(nonce + timestamp + secret);
+    const created = new Date().toISOString();
+    const nonce = CryptoJS.lib.WordArray.random(16).toString(CryptoJS.enc.Hex);
+    const digest = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(CryptoJS.SHA1(nonce + created + secret).toString(CryptoJS.enc.Hex)));
 
-    return `UsernameToken Username="${user}", PasswordDigest="${digest}", Nonce="${nonce}", Created="${timestamp}"`
-};
-
-function base64Sha1(str) {
-    let hexDigest = crypto.createHash('sha1')
-        .update(str)
-        .digest('hex');
-
-    return new Buffer(hexDigest).toString('base64');
+    return `UsernameToken Username="${user}", PasswordDigest="${digest}", Nonce="${nonce}", Created="${created}"`
 };
 
 async function sendCartEventToEmarsys() {
-    /*const url = 'https://api.emarsys.net/api/v2/event/938/trigger';
-    const headers = {
-        'X-WSSE': token,
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'https://api.emarsys.net'
-    };
-
-    const cart_data = cart.map(it => ({
-        title: it.item,
-        description: it.price,
-        image: "https://lamarzocco-emarsys-app.vercel.app/linea-mini-thumb-1.png"
-    }));
-
-    const data = {
-        key_id: 3,
-        external_id: "r.rosiello@reply.it",
-        data: {
-            predict_cart: cart_data
-        }
-    };
-
-    fetch(url, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(data)
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });*/
     const cart_data = cart.map(it => ({
         title: it.item,
         description: it.price,
