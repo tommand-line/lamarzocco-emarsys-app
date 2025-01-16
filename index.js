@@ -60,8 +60,8 @@ function addToCart(item, price, quantity = 1) {
         cart.push({ item, price, quantity });
     }
     ScarabQueue.push(['cart', cart]);
-    sendCartEventToEmarsys(cart)
     ScarabQueue.push(['go']);
+    sendCartEventToEmarsys()
     updateCartCount();
 }
 
