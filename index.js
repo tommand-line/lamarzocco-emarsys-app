@@ -14,8 +14,8 @@ function retrieveToken() {
     return 'UsernameToken Username="' + username + '", PasswordDigest="' + digest + '", Created="' + created + '", nonce="' + nonce + '"';
 }
 
-function sendCartEventToEmarsys() {
-    const url = 'https://api.emarsys.net/api/v2/event/938/trigger';
+async function sendCartEventToEmarsys() {
+    /*const url = 'https://api.emarsys.net/api/v2/event/938/trigger';
     const headers = {
         'X-WSSE': token,
         'Content-Type': 'application/json',
@@ -52,7 +52,32 @@ function sendCartEventToEmarsys() {
     })
     .catch((error) => {
         console.error('Error:', error);
+    });*/
+    const cart_data = cart.map(it => ({
+        title: it.item,
+        description: it.price,
+        image: "https://lamarzocco-emarsys-app.vercel.app/linea-mini-thumb-1.png"
+    }));
+
+    const data = {
+        key_id: 3,
+        external_id: "r.rosiello@reply.it",
+        data: {
+            predict_cart: cart_data
+        }
+    };
+    
+    const response = await fetch('/api/proxy', {
+        method: 'POST',
+        headers: {
+            'X-WSSE': token,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
     });
+    
+    const result = await response.json();
+    console.log(result);
 }
 
 function addToCart(item, price, quantity = 1) {
