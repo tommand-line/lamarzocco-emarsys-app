@@ -1,7 +1,7 @@
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 updateCartCount();
 
-const token = retrieveToken()
+const token = retrieveToken();
 
 function retrieveToken() {
     const username = "lamarzocco001";
@@ -19,15 +19,17 @@ function sendCartEventToEmarsys() {
         'Content-Type': 'application/json'
     };
 
+    const cart_data = cart.map(it => ({
+        title: it.item,
+        description: it.price,
+        image: "https://lamarzocco-emarsys-app.vercel.app/linea-mini-thumb-1.png"
+    }));
+
     const data = {
         key_id: 3,
         external_id: "r.rosiello@reply.it",
         data: {
-            predict_cart: cart.map(it => ({
-                title: it.item,
-                description: it.price,
-                image: "https://lamarzocco-emarsys-app.vercel.app/linea-mini-thumb-1.png"
-            }))
+            predict_cart: cart_data
         }
     };
 
