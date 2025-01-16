@@ -11,7 +11,7 @@ function retrieveToken() {
     const created = new Date().toISOString();
     const nonce = CryptoJS.lib.WordArray.random(16).toString();
     const digest = CryptoJS.SHA256(nonce + created + password).toString(CryptoJS.enc.Base64);
-    return 'UsernameToken Username="' + username + '", PasswordDigest="' + digest + '", Created="' + ts + '", nonce="' + nonce + '"';
+    return 'UsernameToken Username="' + username + '", PasswordDigest="' + digest + '", Created="' + created + '", nonce="' + nonce + '"';
 }
 
 function sendCartEventToEmarsys() {
