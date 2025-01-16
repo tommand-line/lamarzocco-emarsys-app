@@ -1,3 +1,7 @@
+'use strict';
+
+const crypto = require('crypto');
+
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 updateCartCount();
 
@@ -6,14 +10,23 @@ console.log(token);
 console.log(cart);
 
 function retrieveToken() {
-    const username = "lamarzocco001";
-    const password = "EZY4HrCKVhB33RYCntJ3";
-    const created = new Date().toISOString();
-    const nonce = CryptoJS.lib.WordArray.random(16).toString();
-    const digest = CryptoJS.SHA256(nonce + created + password).toString(CryptoJS.enc.Base64);
-    //return 'UsernameToken Username="' + username + '", PasswordDigest="' + digest + '", Created="' + created + '", nonce="' + nonce + '"';
-    return 'UsernameToken Username="lamarzocco001", PasswordDigest="ZTlkYzQ4OWRlNjU2YmY0NTA1NmU2NDIzYzEyZmNmNjViYzY1N2UxZQ==", Created="2025-01-16T15:09:18.907Z", nonce="3eb27e94533c9f11b7a9cb184e226af2"';
-}
+    const user = 'lamarzocco001';
+    const secret = 'EZY4HrCKVhB33RYCntJ3';
+    let nonce = crypto.randomBytes(16).toString('hex');
+    let timestamp = new Date().toISOString();
+
+    let digest = base64Sha1(nonce + timestamp + secret);
+
+    return `UsernameToken Username="${user}", PasswordDigest="${digest}", Nonce="${nonce}", Created="${timestamp}"`
+};
+
+function base64Sha1(str) {
+    let hexDigest = crypto.createHash('sha1')
+        .update(str)
+        .digest('hex');
+
+    return new Buffer(hexDigest).toString('base64');
+};
 
 async function sendCartEventToEmarsys() {
     /*const url = 'https://api.emarsys.net/api/v2/event/938/trigger';
