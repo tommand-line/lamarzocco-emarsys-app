@@ -2,6 +2,8 @@ const cart = JSON.parse(localStorage.getItem('cart')) || [];
 updateCartCount();
 
 const token = retrieveToken();
+console.log(token);
+console.log(cart);
 
 function retrieveToken() {
     const username = "lamarzocco001";
@@ -60,9 +62,9 @@ function addToCart(item, price, quantity = 1) {
     } else {
         cart.push({ item, price, quantity });
     }
+    sendCartEventToEmarsys()
     ScarabQueue.push(['cart', cart]);
     ScarabQueue.push(['go']);
-    sendCartEventToEmarsys()
     updateCartCount();
 }
 
