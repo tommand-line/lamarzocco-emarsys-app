@@ -26,8 +26,8 @@ function sendCartEventToEmarsys() {
         data: {
             predict_cart: cart.map(it => ({
                 title: it.item,
-                price: it.price,
-                description: "prova descrizione"
+                description: it.price,
+                image: "https://lamarzocco-emarsys-app.vercel.app/linea-mini-thumb-1.png"
             }))
         }
     };
