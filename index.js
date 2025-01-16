@@ -1,10 +1,10 @@
+const crypto_js = require('crypto-js');
 const cart = JSON.parse(localStorage.getItem('cart')) || [];
 updateCartCount();
 
 const token = retrieveToken()
 
 function retrieveToken() {
-    const crypto_js = require('crypto-js');
     var username = "lamarzocco001";
     var secret = "EZY4HrCKVhB33RYCntJ3";
     var ts = (new Date()).toISOString();
