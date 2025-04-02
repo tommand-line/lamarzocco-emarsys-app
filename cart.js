@@ -1,5 +1,33 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+async function sendCartEventToEmarsys() {
+    const cart_data = cart.map(it => ({
+        title: it.item,
+        description: it.price,
+        image: "https://lamarzocco-emarsys-app.vercel.app/linea-mini-thumb-1.png"
+    }));
+
+    const data = {
+        key_id: 3,
+        external_id: "t.mandoloni@reply.it",
+        data: {
+            predict_cart: cart_data
+        }
+    };
+    
+    const response = await fetch('/api/proxy', {
+        method: 'POST',
+        headers: {
+            'X-WSSE': token,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+    
+    const result = await response.json();
+    console.log(result);
+}
+
 function renderCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     cartItemsContainer.innerHTML = '';
@@ -35,6 +63,7 @@ function renderCart() {
 function removeFromCart(item) {
     cart = cart.filter(product => product.item !== item);
     localStorage.setItem('cart', JSON.stringify(cart));
+    sendCartEventToEmarsys()
     ScarabQueue.push(['cart', cart]);
     ScarabQueue.push(['go']);
     renderCart();
@@ -53,6 +82,7 @@ function checkout() {
 
 function emptyCart() {
     cart = []
+    sendCartEventToEmarsys()
     ScarabQueue.push(['cart', cart]);
     ScarabQueue.push(['go']);
 

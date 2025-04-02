@@ -26,7 +26,7 @@ async function sendCartEventToEmarsys() {
 
     const data = {
         key_id: 3,
-        external_id: "r.rosiello@reply.it",
+        external_id: "t.mandoloni@reply.it",
         data: {
             predict_cart: cart_data
         }
