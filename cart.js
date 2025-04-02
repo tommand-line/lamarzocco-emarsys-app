@@ -1,4 +1,4 @@
-const cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const token = retrieveToken();
 console.log(token);
