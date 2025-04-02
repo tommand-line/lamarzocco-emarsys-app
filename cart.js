@@ -1,5 +1,18 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+const token = retrieveToken();
+
+function retrieveToken() {
+    const user = 'lamarzocco001';
+    const secret = 'EZY4HrCKVhB33RYCntJ3';
+
+    const created = new Date().toISOString();
+    const nonce = CryptoJS.lib.WordArray.random(16).toString(CryptoJS.enc.Hex);
+    const digest = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(CryptoJS.SHA1(nonce + created + secret).toString(CryptoJS.enc.Hex)));
+
+    return `UsernameToken Username="${user}", PasswordDigest="${digest}", Nonce="${nonce}", Created="${created}"`
+};
+
 async function sendCartEventToEmarsys() {
     const cart_data = cart.map(it => ({
         title: it.item,
