@@ -16,6 +16,7 @@ function retrieveToken() {
     return `UsernameToken Username="${user}", PasswordDigest="${digest}", Nonce="${nonce}", Created="${created}"`
 };
 
+// serve per inviare i prodotti a carrello da inserire nella mail tramite evento
 async function sendCartEventToEmarsys() {
     const cart_data = cart.map(it => ({
         title: it.item,
@@ -50,9 +51,11 @@ function addToCart(item, price, quantity = 1) {
     if (productIndex > -1) {
         cart[productIndex].quantity += 1;
     } else {
-        cart.push({ item, price, quantity });
+        description = 'prova prodotto'
+        image = "https://lamarzocco-emarsys-app.vercel.app/linea-mini-thumb-1.png"
+        cart.push({ item, price, quantity, description, image});
     }
-    sendCartEventToEmarsys()
+    //sendCartEventToEmarsys()
     ScarabQueue.push(['cart', cart]);
     ScarabQueue.push(['go']);
     updateCartCount();
