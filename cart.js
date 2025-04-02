@@ -1,6 +1,8 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const token = retrieveToken();
+console.log(token);
+console.log(cart);
 
 function retrieveToken() {
     const user = 'lamarzocco001';
