@@ -51,11 +51,9 @@ function addToCart(item, price, quantity = 1) {
     if (productIndex > -1) {
         cart[productIndex].quantity += 1;
     } else {
-        description = 'prova prodotto'
-        image = "https://lamarzocco-emarsys-app.vercel.app/linea-mini-thumb-1.png"
-        cart.push({ item, price, quantity, description, image});
+        cart.push({ item, price, quantity });
     }
-    //sendCartEventToEmarsys()
+    sendCartEventToEmarsys()
     ScarabQueue.push(['cart', cart]);
     ScarabQueue.push(['go']);
     updateCartCount();
