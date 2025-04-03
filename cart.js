@@ -101,6 +101,7 @@ function pay() {
         orderId: '123456789',
         items: cart
     }]);
+    ScarabQueue.push(['go']);
 
     //emptyCart() paga senza svuotare il carrello
     //window.location.href = 'index.html';
