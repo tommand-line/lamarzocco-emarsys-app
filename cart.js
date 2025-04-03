@@ -95,6 +95,17 @@ function checkout() {
     //window.location.href = 'index.html';
 }
 
+function pay() {
+    alert('Pagamento Avvenuto con Successo! Ricordati di Svuotare il Carrello');
+    ScarabQueue.push(['purchase', {
+        orderId: '123456789',
+        items: cart
+    }]);
+
+    //emptyCart() paga senza svuotare il carrello
+    //window.location.href = 'index.html';
+}
+
 function emptyCart() {
     cart = []
     sendCartEventToEmarsys()
